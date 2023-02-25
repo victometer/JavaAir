@@ -14,10 +14,10 @@ public class FlightTest {
 
     @Before
     public void before(){
-        flight = new Flight("PK 4907", "Phuket", "Edinburgh", "13:05",10000.00, 40);
-        passenger1 = new Passenger("Jenny", 3);
-        passenger2 = new Passenger("Tony", 1);
-        passenger3 = new Passenger("Meredith", 2);
+        flight = new Flight("PK 4907", "Phuket", "Edinburgh", "13:05",10000.00, 40, 50);
+        passenger1 = new Passenger("Jenny", BagType.CARRY_ON, 2, 55.6);
+        passenger2 = new Passenger("Tony", BagType.HOLD, 1, 81.5);
+        passenger3 = new Passenger("Meredith", BagType.SPECIAL,1, 60.00);
         flight.addPassenger(passenger1);
         flight.addPassenger(passenger2);
         flight.addPassenger(passenger3);
@@ -66,6 +66,11 @@ public class FlightTest {
     @Test
     public void canReturnNoOfSeatsAvailable(){
         assertEquals(37, flight.getAvailableSeatsNo());
+
+    }
+    @Test
+    public void hasMaxBagWeightPP(){
+        assertEquals(50, flight.getMaxBagWeightPP());
 
     }
     @Test

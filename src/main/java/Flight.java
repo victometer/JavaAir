@@ -8,8 +8,9 @@ public class Flight {
     private String departureTime;
     private double totalWeightAllowed;
     private int seats;
+    private int maxBagWeightPP;
 
-    public Flight (String flightNo, String destination, String departurePoint, String departureTime, double totalWeightAllowed, int seats){
+    public Flight (String flightNo, String destination, String departurePoint, String departureTime, double totalWeightAllowed, int seats, int maxBagWeightPP){
         this.listOfPassengers = new ArrayList<>();
         this.flightNo = flightNo;
         this.destination = destination;
@@ -17,6 +18,7 @@ public class Flight {
         this.departureTime = departureTime;
         this.totalWeightAllowed = totalWeightAllowed;
         this.seats = seats;
+        this.maxBagWeightPP = maxBagWeightPP;
     }
 
 
@@ -54,6 +56,10 @@ public class Flight {
 
     public int getAvailableSeatsNo() {
         return (getSeatCapacity() - getListOfPassengersSize());
+    }
+
+    public int getMaxBagWeightPP() {
+        return maxBagWeightPP;
     }
 
     public int bookPassenger(Passenger passenger) {
